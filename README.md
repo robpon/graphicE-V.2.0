@@ -1,6 +1,6 @@
-# photoCut-V.2.0
+# graphicE-V.2.0
 
-PhotoCut-V.2.0 is completely new version of simple web photoshop
+graphicE-V.2.0 is completely new version of simple web photoshop
 
 # What's new?
 New functions :
