@@ -1,0 +1,40 @@
+.picker{
+    width: 420px;
+    height: 380px;
+    background: rgb(59, 59, 59);
+    position: absolute;
+    overflow: hidden;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    border-radius: 7px;
+    z-index: 40;
+
+}
+.picker-1{
+    height: 200px;
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+.picker-2{
+    height: 10px;
+    width: 400px;
+    margin: 10px;
+    float: left;
+}
+.picker-3{
+    float: left;
+    height: 40px;
+    width: 400px;
+    margin: 10px;
+}
+
+.canvas-picker{
+    position: relative;
+    background: #FFF;
+    border-radius: 5px;
+}

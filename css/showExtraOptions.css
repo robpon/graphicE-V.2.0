@@ -1,0 +1,30 @@
+:root{
+    --height1: 2;
+}
+@keyframes newOptions {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+@keyframes hideExtraOptions {
+    0%{
+        height: fit-content;
+    }
+    100%{
+        height: 0;
+    }
+}
+
+.extraOptions{
+    height: fit-content;
+    width: 100%;
+    animation-name: newOptions;
+    animation-duration: 500ms;
+}
+.hiddenExtraOptions{
+    height: 0;
+    width: 100%;
+}

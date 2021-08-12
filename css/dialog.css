@@ -1,0 +1,218 @@
+@keyframes showDialog {
+    0%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100%{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+@keyframes hideDialog {
+    0%{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    100%{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+.showDialog{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    animation-name: showDialog;
+    animation-duration: 150ms;
+    pointer-events: none;
+}
+.showDialog1{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    animation-name: showDialog;
+    animation-duration: 150ms;
+}
+.hideDialog{
+    height: 0;
+    width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    animation-name: hideDialog;
+    animation-duration: 150ms;
+}
+.relative{
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    position: relative;
+}
+.exportDialog{
+    position: absolute;
+    height: 40%;
+    width: 60vh;
+    background: rgb(59, 59, 59);
+    overflow: hidden;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 7px;
+    z-index: 40;
+}
+.leftHalfOfContainer{
+    float: left;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    padding: 10px;
+    overflow: hidden;
+}
+.rightHalfOfContainer{
+    float: right;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    top:0;
+    padding: 10px;
+}
+#exportImage{
+    width: 40%;
+    height: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+}
+.rectangleContainer{
+    width: 100%;
+    height: fit-content;
+    padding: 5px;
+    margin: 5px;
+}
+#download{
+    height: 60px;
+    text-align: center;
+    width: 60px;
+    background-color: #E42024;
+    border: 0;
+    border-radius: 30px;
+    box-shadow: 0 0 0 ;
+    animation-name: buttonNoHover;
+    animation-duration: 200ms;
+}
+#download:hover{
+    height: 70px;
+    width: 70px;
+    background-color: #E42024;
+    border: 0;
+    border-radius: 35px;
+    box-shadow: rgba(228, 32, 36, 0.6) 0px 0px 30px;
+    animation-name: buttonHover;
+    animation-duration: 200ms;
+}
+@keyframes buttonHover {
+    0%{
+        height: 60px;
+        width: 60px;
+        border-radius: 30px;
+    }
+    100%{
+        height: 70px;
+        width: 70px;
+        box-shadow: rgba(228, 32, 36, 0.6) 0px 0px 30px;
+        border-radius: 35px;
+    }
+}
+@keyframes buttonNoHover {
+    0%{
+        height: 70px;
+        width: 70px;
+        box-shadow: rgba(228, 32, 36, 0.6) 0px 0px 30px;
+        border-radius: 35px;
+
+    }
+    100%{
+        height: 60px;
+        width: 60px;
+        border-radius: 30px;
+    }
+}
+.button3{
+    width: 80%;
+    background-color: #6a6969;
+    height: 40px;
+    border: 0;
+    border-radius: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    margin-left: 10%;
+    margin-top: 5px;
+    animation-name: hideShadow3;
+    animation-duration: 250ms;
+}
+.button3:hover{
+    box-shadow: rgba(106, 105, 105, 1) 0 0 15px;
+    animation-name: showShadow3;
+    animation-duration: 250ms;
+}
+.button3to1{
+    animation-name: button3to1 ;
+    animation-duration: 200ms;
+
+}
+.button1to3{
+    animation-name: button1to3;
+    animation-duration: 200ms;
+}
+@keyframes showShadow3 {
+    0%{
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow: rgba(106, 105, 105, 1) 0 0 15px;
+    }
+
+}
+@keyframes hideShadow3 {
+    0%{
+        box-shadow: rgba(106, 105, 105, 1) 0 0 15px;
+    }
+    100%{
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+
+    }
+}
+@keyframes button1to3 {
+    0%{
+        background-color: #E42024
+    }
+    100%{
+        background-color: #6a6969;
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+}
+@keyframes button3to1 {
+    0%{
+        background-color: #6a6969;
+    }
+    100%{
+        background-color: #E42024;
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+}
+.dialogBack{
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}

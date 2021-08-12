@@ -1,0 +1,302 @@
+html{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.heading{
+    position: absolute;
+    top: 0;
+    height:fit-content;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(120, 120, 120, 0.65);
+    backdrop-filter: blur(20px) saturate(30%);
+}
+.all{
+    position: absolute;
+    padding-bottom: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+    background-color: black;
+}
+.contents{
+    height: 100%;
+    width: 100%;
+    margin-top: 8%;
+}
+input[type=number]{
+    background-color: rgba(120, 120, 120, 0.65);
+    backdrop-filter: blur(20px) saturate(30%);
+    border: 0;
+    border-radius: 20px;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+    color: azure;
+}
+input[type=number]::placeholder{
+    color: azure;
+    text-align: center;
+}
+.templates {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 10px;
+    margin-top: 30px;
+    height: 200px;
+    width: 100%;
+}
+.template{
+    position: relative;
+    display: inline-block;
+    height: 90%;
+    margin-left: 30px;
+    width: fit-content;
+    padding: 16px;
+}
+#T1{
+    height: 120px;
+    width: 120px;
+    background-color: #FFFFFF;
+}
+#T2{
+    top: 20px;
+    height: 80px;
+    width: 120px;
+    background-color: #FFFFFF;
+}
+#T3{
+    top: 31px;
+    height: 68px;
+    width: 120px;
+    background-color: #FFFFFF;
+}
+#T4{
+    top: 15px;
+    height: 90px;
+    width: 120px;
+    background-color: #FFFFFF;
+}
+#T5{
+    top: 12px;
+    height: 96px;
+    width: 120px;
+    background-color: #FFFFFF;
+}
+#T6{
+    top: 17px;
+    height: 75px;
+    width: 120px;
+    background-color: #FFFFFF;
+}
+#T7{
+    left: 20px;
+    width: 80px;
+    height: 120px;
+    background-color: #FFFFFF;
+}
+#T8{
+    left: 31px;
+    width: 68px;
+    height: 120px;
+    background-color: #FFFFFF;
+}
+#T9{
+    left: 15px;
+    width: 90px;
+    height: 120px;
+    background-color: #FFFFFF;
+}
+#T10{
+    left:12px ;
+    width: 96px;
+    height: 120px;
+    background-color: #FFFFFF;
+}
+#T11{
+    left: 22px;
+    width: 76px;
+    height: 120px;
+    background-color: #FFFFFF;
+}
+.text{
+    color: #FFFFFF;
+    font-size: 15px;
+    position: absolute;
+    bottom: 2px;
+
+}
+#go{
+    height: 50px;
+    width: 50px;
+    background-color: #E42024;
+    border: 0;
+    border-radius: 25px;
+    box-shadow: 0 0 0 ;
+    animation-name: buttonNoHover;
+    animation-duration: 200ms;
+}
+#go:hover{
+    height: 60px;
+    width: 60px;
+    background-color: #E42024;
+    border: 0;
+    border-radius: 30px;
+    box-shadow: rgba(228, 32, 36, 0.6) 0px 0px 30px;
+    animation-name: buttonHover;
+    animation-duration: 200ms;
+}
+@keyframes buttonHover {
+    0%{
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+    }
+    100%{
+        height: 60px;
+        width: 60px;
+         box-shadow: rgba(228, 32, 36, 0.6) 0px 0px 30px;
+        border-radius: 30px;
+    }
+}
+@keyframes buttonNoHover {
+    0%{
+        height: 60px;
+        width: 60px;
+        box-shadow: rgba(228, 32, 36, 0.6) 0px 0px 30px;
+        border-radius: 30px;
+
+    }
+    100%{
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+    }
+}
+#ad{
+    width: 100%;
+}
+#firstIMG{
+   position: absolute;
+    top: 40px;
+}
+#logo{
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    font-size: xx-large;
+    font-family: Futura;
+    color: rgba(228,32,36,0.7);
+    margin: 5px;
+    padding: 2px;
+}
+.buttons{
+     width: 60%;
+    height: fit-content;
+     float: right;
+ }
+.headingButton{
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(228, 32, 36, 1);
+    border: 0;
+    border-radius: 40px;
+    padding: 10px;
+    font-weight: lighter;
+    font-family: Futura;
+    font-size: small;
+    color: black;
+    float: right;
+    margin: 10px;
+    animation-name: hideShadow;
+    animation-duration: 250ms;
+    box-shadow: rgba(0, 0, 0, 0) 0 0 0;
+}
+.headingButton:hover{
+   animation-name: showShadow;
+    animation-duration: 250ms;
+    box-shadow: rgba(228, 32, 36, 1) 0 0 30px;
+
+}
+@keyframes showShadow {
+    0%{
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow: rgba(228, 32, 36, 1) 0 0 30px;
+    }
+
+}
+@keyframes hideShadow {
+    0%{
+        box-shadow: rgba(228, 32, 36, 1) 0 0 30px;
+    }
+    100%{
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+
+    }
+}
+.title{
+    font-family: Futura;
+    font-size: x-large;
+    color: azure;
+}
+.textContents{
+    font-family: Futura;
+    font-size: medium;
+    color: azure;
+    text-align: justify;
+    text-justify: inter-word ;
+}
+#firstText{
+    background-color: rgba(240, 255, 255, 0.3);
+    backdrop-filter: blur(20px) saturate(30%);
+    border: 0;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    position: relative;
+    width: 30%;
+    padding: 10px;
+    padding-top: 0;
+    float: right;
+    top: 20%;
+}
+#secondIMG{
+    position: absolute;
+}
+#secondText{
+    background-color: rgba(240, 255, 255, 0.3);
+    backdrop-filter: blur(20px) saturate(30%);
+    border: 0;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    width: 30%;
+    padding: 10px;
+    padding-top: 0;
+    float: left;
+    top: 20%;
+}
+#firstCont{
+    position: relative;
+    height: fit-content;
+}
+#secondCont{
+    position: relative;
+    height: fit-content;
+}
+
+
+
