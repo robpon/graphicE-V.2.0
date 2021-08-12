@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id="body">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/dialog.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/colorPicker.css">
+<link rel="stylesheet" href="css/showExtraOptions.css">
+
+<div class="all">
+    <div id="left-div" class="left-container">
+        <div id="contents">
+            <canvas class="all-canvas" id="canvas" height="100"></canvas>
+            <canvas class="all-canvas" id="canvas2"></canvas>
+            <canvas class="all-canvas" id="canvas1"></canvas>
+        </div>
+
+    </div>
+    <div id="functions-div" class="right-container">
+        <div id="layers-list" class="settings-element">
+            <div class="title">Obiekty</div>
+            <div class="hidden"></div>
+            <div class="option">
+                <div class="container ">
+                    <div class="row row-cols-2 justify-content-center">
+                        <div class="col text-center">
+                            <button class="new_obj " id="newSketchB">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 30 C10 30, 20 10 , 30 30 C30 30, 40 50, 50 30" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col text-center">
+                            <button id="newPhotoB" class=" new_obj ">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 40 L20 30 L30 40 L40 20 L50 35" stroke-width="4"
+                                          stroke="#ccdbdb" fill="none">
+                                    </path>
+                                    <path d="M10 10 L50 10 M50 10 L50 50 M50 50 L 10 50 M10 50 L10 10  "
+                                          stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+
+                            </button>
+                        </div>
+                        <div class="col text-center">
+                            <button class=" new_obj" id="newTitleB">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 50 L30 10 M30 10 L50 50 M41 32 L19 32" stroke-width="6"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col text-center">
+                            <button class=" new_obj" id="gridB">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+
+                                    <path d="M10 15 L50 15 M10 30 L50 30 M10 45 L50 45" stroke-linecap="round"
+                                          stroke-width="4" stroke="#ccdbdb"
+                                          fill="none"></path>
+                                    <path d="M15 10 L15 50 M30 10 L30 50 M45 10 L45 50" stroke-linecap="round"
+                                          stroke-width="4" stroke="#F0FFFFFF"
+                                          fill="none"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="list" class="list">
+            </div>
+            <button class="button1" id="export">Wyeksportuj</button>
+
+        </div>
+        <div id="layer-elements" class="settings-element">
+            <div class="title">Ustawienia</div>
+            <div id="list1" class="list">
+                <div class="hidden"></div>
+                <div id="drawing-options" class="hidden">
+                    <div class="option">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-6 text-center">
+                                    <button class="new_obj edit_type_options1">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <circle cx="10" cy="50" r="2" stroke-width="4" stroke="#ccdbdb" fill="none"
+                                                    stroke-linecap="round"></circle>
+                                            <path d="M15 45 L50 10" stroke-width="4" stroke="#F0FFFFFF" fill="none"
+                                                  stroke-linecap="round"></path>
+
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <button class="new_obj edit_type_options2">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 50" stroke-width="4" stroke="#F0FFFFFF" fill="none"
+                                                  stroke-linecap="round"></path>
+
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <button class="new_obj edit_type_options3">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 10 M50 10 L50 50 M50 50 L10 50 M10 50 L10 10 M10 10 Z"
+                                                  stroke-width="4" stroke="#F0FFFFFF" fill="none"
+                                                  stroke-linecap="round"></path>
+
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <button class="new_obj edit_type_options4">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M30 10 L50 50 M50 50 L10 50 M10 50 L30 10" stroke-width="4"
+                                                  stroke="#F0FFFFFF" stroke-linecap="round"
+                                                  fill="none"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="drawingSettings" class="edit-type-options">
+                        <div class="option chosen_colour">
+                            <button id="chosenColour" class="roundedChosenColour"></button>
+                            <div class="text">Wybrany kolor</div>
+                        </div>
+
+                        <div class="option">
+                            <input type="range" min="1" max="2000" value="2" class="drawSizeSlider" id="drawSize">
+                            <div class="text width" id="width">Grubość pędzla to : 6 px</div>
+                        </div>
+                        <div class="option">
+                            <div class="row row-cols-2">
+                                <div class="col text-center">
+                                    <button class="round new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="20" stroke-width="4" stroke="#F0FFFFFF"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col text-center">
+
+                                    <button class="square new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 10 L50 50 L10 50 L10 10 Z" stroke-width="4"
+                                                  stroke="#F0FFFFFF"
+                                                  fill="none"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option">
+                            <div class="col text-center">
+                                <button class="new_obj" id="rubber">
+                                    <svg height="40" width="40" viewBox="0 0 60 60">
+                                        <path d="M50 10 L10 50" fill="none" stroke-width="15" stroke="#F0FFFFFF"
+                                              stroke-linecap="round"></path>
+                                        <circle r="7.5" cx="10" cy="50" fill="#ccdbdb"
+                                                stroke-linecap="round"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <div class="option">
+                                <div class="col text-center">
+                                    <button class="new_obj" id="pickColour">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M30 10 L30 50 M10 30 L50 30" stroke-width="4"
+                                                  stroke="#F0FFFFFF"
+                                                  fill="none" stroke-linecap="round"></path>
+                                            <circle r="2" cx="30" cy="30" fill="#ccdbdb"
+                                                    stroke-linecap="round"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lineDrawingSettings" class="hidden">
+                        <div class="option">
+                            <div class="text" id="sPL">Start point</div>
+                        </div>
+                        <div class="option">
+                            <div class="text" id="ePL">End Point</div>
+                        </div>
+                        <div class="option chosen_colour">
+                            <button class="roundedChosenColour"></button>
+                            <div class="text">Wybrany kolor</div>
+                        </div>
+                        <div class="option">
+                            <input type="range" min="1" max="200" value="2" class="drawSizeSlider" id="drawSize1">
+                            <div class="text width" id="width1">Grubość pędzla to : 2 px</div>
+                        </div>
+                        <div class="option">
+                            <div class="row row-cols-2">
+                                <div class="col text-center">
+                                    <button class="round new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="20" stroke-width="4" stroke="#F0FFFFFF"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col text-center">
+
+                                    <button class="square new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 10 L50 50 L10 50 L10 10 Z" stroke-width="4"
+                                                  stroke="#F0FFFFFF"
+                                                  fill="none"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="squareDrawingSettings" class="hidden">
+                        <div class="option">
+                            <div class="text" id="sPS">Start point</div>
+                        </div>
+                        <div class="option">
+                            <div class="text" id="ePS">End Point</div>
+                        </div>
+                        <div class="option chosen_colour">
+                            <button class="roundedChosenColour"></button>
+                            <div class="text">Wybrany kolor</div>
+                        </div>
+                        <div class="option">
+                            <input type="range" min="1" max="200" value="2" class="drawSizeSlider" id="drawSize2">
+                            <div class="text width" id="width2">Grubość pędzla to : 2 px</div>
+                        </div>
+                        <div class="option">
+                            <div class="row row-cols-2">
+                                <div class="col text-center">
+                                    <button class="round new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="20" stroke-width="4" stroke="#F0FFFFFF"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col text-center">
+
+                                    <button class="square new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 10 L50 50 L10 50 L10 10 Z" stroke-width="4"
+                                                  stroke="#F0FFFFFF"
+                                                  fill="none"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="triangleDrawingSettings" class="hidden">
+                        <div class="option">
+                            <div class="text" id="sPT">Start point</div>
+                        </div>
+                        <div class="option">
+                            <div class="text" id="ePT">End Point</div>
+                        </div>
+                        <div class="option chosen_colour">
+                            <button class="roundedChosenColour"></button>
+                            <div class="text">Wybrany kolor</div>
+                        </div>
+                        <div class="option">
+                            <input type="range" min="1" max="200" value="2" class="drawSizeSlider" id="drawSize3">
+                            <div class="text width" id="width3">Grubość pędzla to : 2 px</div>
+                        </div>
+                        <div class="option">
+                            <div class="row row-cols-2">
+                                <div class="col text-center">
+                                    <button class="round new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="20" stroke-width="4" stroke="#F0FFFFFF"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col text-center">
+
+                                    <button class="square new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 10 L50 50 L10 50 L10 10 Z" stroke-width="4"
+                                                  stroke="#F0FFFFFF"
+                                                  fill="none"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="photo-options" class="hidden">
+                <div class="option">
+                    <div class="row justify-content-center">
+                        <div class="col-6 text-center">
+                            <button class="new_obj edit_type_options1">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 30 C10 30, 20 10 , 30 30 C30 30, 40 50, 50 30" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="new_obj edit_type_options2">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 30 L50 30 M30 10 L30 50"
+                                          stroke-width="4" stroke="#ccdbdb" fill="none"></path>
+                                    <path d="M15 35 L10 30 M10 30 L15 25" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                    <path d="M25 15 L30 10 M30 10 L35 15" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                    <path d="M45 25 L50 30 M50 30 L45 35" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                    <path d="M25 45 L30 50 M30 50 L35 45" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="new_obj edit_type_options3">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 30 L10 10 L30 10  M30 50 L50 50 L50 30 " stroke-width="4"
+                                          stroke="#F0FFFFFF"
+                                          fill="none" stroke-linecap="round"></path>
+
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="new_obj edit_type_options4">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M15 42 L49 15 M29 48 L40 10" stroke-width="4" stroke="#F0FFFFFF"
+                                          fill="none"></path>
+                                    <circle cx="14.1" cy="40.1" r="2" stroke-width="4" stroke="#ccdbdb"
+                                            fill="none"></circle>
+                                    <circle cx="31" cy="48.3" r="2" stroke-width="4" stroke="#ccdbdb"
+                                            fill="none"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="new_obj edit_type_options5">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <circle r="15" cx="30" cy="30" fill="none" stroke-width="4"
+                                            stroke="#ccdbdb"></circle>
+                                    <path d="M5 35 L55 25 " fill="none" stroke-width="6" stroke="#F0FFFFFF"
+                                          stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="filtersSettings" class="hidden">
+                    <div class="option">
+                        <input type="range" min="0" max="100" value="0" class="slider effects_slider" id="1P"
+                        >
+                        <div class="text">Rozmazanie :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="1000" value="100" class="slider effects_slider" id="2P"
+                        >
+                        <div class="text">Jasność :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="200" value="100" class="slider effects_slider" id="3P"
+                        >
+                        <div class="text">Kontrast :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="100" value="0" class="slider effects_slider" id="4P"
+                        >
+                        <div class="text">Cień :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="100" value="0" class="slider effects_slider" id="5P"
+                        >
+                        <div class="text">Szarość :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="400" value="0" class="slider effects_slider" id="6P"
+                        >
+                        <div class="text">Rotacja :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="200" value="0" class="slider effects_slider" id="7P"
+                        >
+                        <div class="text">Odwracanie :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="100" value="100" class="slider effects_slider" id="8P"
+                        >
+                        <div class="text">Przeźroczystość :</div>
+                    </div>
+                    <div class="option">
+                        <input type="range" min="0" max="300" value="100" class="slider effects_slider" id="9P"
+                        >
+                        <div class="text">Saturacja :</div>
+                    </div>
+
+                    <div class="option">
+                        <input type="range" min="0" max="300" value="0" class="slider effects_slider" id="10P"
+                        >
+                        <div class="text">Sepia :</div>
+                    </div>
+                </div>
+                <div id="positionSettings" class="hidden">
+                    <div class="option">
+                        <div id="mousePosition" class="text">Pozycja myszki : 0 , 0</div>
+                    </div>
+                    <div class="option">
+                        <div id="imagePosition" class="text"> Pozycja obrazu: 0 , 0</div>
+                    </div>
+                    <div class="option">
+                        <input id="xPosition" type="number">
+                        <input id="yPosition" type="number">
+                        <button id="newImgPositionSetter" class="button1">Przenieś</button>
+                        <button id="newImgPositionCancel" class="button1">Anuluj</button>
+                    </div>
+                </div>
+                <div id="sizeSettings" class="hidden">
+                    <div class="option">
+                        <div class="text">Wymiary obrazu: 0, 0</div>
+                    </div>
+                    <div class="option">
+                        <div class="text">Pozycja obrazu: 0, 0</div>
+                    </div>
+                    <div class="option">
+                        <input type="number" id="newHeightOfPhoto">
+                        <input type="number" id="newWidthOfPhoto">
+                        <button id="resizeImage" class="button1">Zastosuj</button>
+                        <button id="clearUserResizeInput" class="button1">Anuluj</button>
+                    </div>
+
+                </div>
+                <div id="cutSettings" class="hidden">
+                    <div class="option">
+                        <div class="row row-cols-2">
+                            <div class="col text-center">
+                                <button class="new_obj" id="lineCut">
+                                    <svg height="40" width="40" viewBox="0 0 60 60">
+                                        <path d="M30 10 L50 10 M50 10 L50 30 M50 30 L30 30 M30 30 L30 10"
+                                              stroke-width="6" stroke="#007FFF" fill="none"
+                                              stroke-linecap="round"></path>
+                                        <path d="M15 42 L49 15 M29 48 L40 10" stroke-width="4" stroke="#F0FFFFFF"
+                                              fill="none"></path>
+                                        <circle cx="14.1" cy="40.1" r="2" stroke-width="4" stroke="#ccdbdb"
+                                                fill="none"></circle>
+                                        <circle cx="31" cy="48.3" r="2" stroke-width="4" stroke="#ccdbdb"
+                                                fill="none"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="col text-center">
+                                <button class="new_obj" id="brushCut">
+                                    <svg height="40" width="40" viewBox="0 0 60 60">
+                                        <path d="M40 10 L50 30 M50 30 L30 20 M30 20 L35 40" stroke-width="8"
+                                              stroke="#007FFF" fill="none" stroke-linecap="round"></path>
+                                        <path d="M15 42 L49 15 M29 48 L40 10" stroke-width="4" stroke="#F0FFFFFF"
+                                              fill="none"></path>
+                                        <circle cx="14.1" cy="40.1" r="2" stroke-width="4" stroke="#ccdbdb"
+                                                fill="none"></circle>
+                                        <circle cx="31" cy="48.3" r="2" stroke-width="4" stroke="#ccdbdb"
+                                                fill="none"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="hidden hiddenExtraOptions" id="extraCutOptions">
+                        <div class="option">
+                            <input type="range" id="drawSize4" class="drawSizeSlider">
+                            <div class="text width">Grubość pędzla to : 6 px</div>
+                        </div>
+                        <div class="option">
+                            <div class="row row-cols-2">
+                                <div class="col text-center">
+                                    <button class="round new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="20" stroke-width="4" stroke="#F0FFFFFF"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="col text-center">
+                                    <button class="square new_obj">
+                                        <svg height="40" width="40" viewBox="0 0 60 60">
+                                            <path d="M10 10 L50 10 L50 50 L10 50 L10 10 Z" stroke-width="4"
+                                                  stroke="#F0FFFFFF"
+                                                  fill="none"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <div class="row row-cols-2">
+                            <div class="col text-center">
+                                <button class="chosen-new-obj" id="insideCut">
+                                    <svg height="40" width="40" viewBox="0 0 60 60">
+                                        <path d="M15 15 L10 55 L55 37 L15 15" stroke-width="4" fill="#F0FFFFFF"
+                                              stroke="#F0FFFFFF" stroke-linecap="round"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="col text-center">
+                                <button class="new_obj" id="outCut">
+                                    <svg height="40" width="40" viewBox="0 0 60 60">
+                                        <path d="M10 10 L50 10 L50 50 L45 50 L45 37 L15 15 L15 45 L45 37 L45 50 L10 50 L10 10 "
+                                              stroke-width="4"
+                                              fill="#F0FFFFFF" stroke="#F0FFFFFF" stroke-linecap="square"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <button class="button1" id="startCutting">Zacznij przycinać</button>
+                        <button class="button1" id="endCutting">Zakończ</button>
+                        <button class="button1" id="deleteNoAcceptedCut">Anuluj</button>
+                    </div>
+                </div>
+                <div id="rotationSettings" class="hidden">
+                    <div class="option">
+                        <div id="rotation" class="text">Odchylenie od poziomu: 0*</div>
+                    </div>
+                    <div class="option">
+                        <input id="rotationRange" type="range" min="0" max="360" value="0">
+                        <div class="text">Odchylenie od poziomu</div>
+                    </div>
+                    <div class="option">
+                        <input id="rotationInput" type="number">
+                        <div class="text">Podaj odchylnie od pionu w stopniach</div>
+                        <button id="applyUserRotationData" class="button1">Zastosuj</button>
+                        <button id="clearUserRotationData" class="button1">Anuluj</button>
+                    </div>
+                </div>
+            </div>
+            <div id="title-options" class="hidden">
+                <div class="option">
+                    <div class="row row-cols-2">
+                        <div class="col text-center">
+                            <button class="new_obj edit_type_options1">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 30 C10 30, 20 10 , 30 30 C30 30, 40 50, 50 30" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col text-center">
+                            <button class="new_obj edit_type_options2">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 30 L50 30 M30 10 L30 50"
+                                          stroke-width="4" stroke="#ccdbdb" fill="none"></path>
+                                    <path d="M15 35 L10 30 M10 30 L15 25" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                    <path d="M25 15 L30 10 M30 10 L35 15" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                    <path d="M45 25 L50 30 M50 30 L45 35" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                    <path d="M25 45 L30 50 M30 50 L35 45" stroke-linecap="round" stroke-width="4"
+                                          stroke="#F0FFFFFF" fill="none"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <input type="text" id="textAdder">
+                </div>
+                <div class="option">
+                    <input id="textRang" type="range" min="1" max="100" value="15">
+                    <div class="text" id="textRangePrint">Rozmiar tekstu to: 1</div>
+                </div>
+                <div class="option chosen_colour">
+                    <button id="chosenColour4" class="roundedChosenColour"></button>
+                    <div class="text">Wybrany kolor</div>
+                </div>
+                <div id="fontFamilyB" class="option">
+                    <div class="row row-cols-1">
+                        <div class="col text-center">
+                            <button class="new_obj">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 50 L10 10 M10 10 L50 50" stroke-width="8" stroke="#F0FFFFFF"
+                                          fill="none" stroke-linecap="round"></path>
+                                    <path d="M41 32 L19 32" stroke-width="8" stroke="#007FFF" fill="none"
+                                          stroke-linecap="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <div class="text" id="font">Roboto</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="row row-cols-2">
+                        <div class="col text-center">
+                            <div id="normalFont" class="new_obj">
+                                <svg height="35" width="35" viewBox="0 0 60 60">
+                                    <path d="M10 50 L30 10 M30 10 L50 50 M41 32 L19 32" stroke-width="6"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div id="boldFont" class="col text-center">
+                            <div class="new_obj">
+                                <svg height="35" width="35" viewBox="0 0 60 60">
+                                    <path d="M10 50 L30 10 M30 10 L50 50 M41 32 L19 32" stroke-width="8"
+                                          stroke="#F0FFFFFF" fill="none" stroke-linecap="round"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="grid-options" class="hidden">
+                <div class="option">
+                    <div class="row justify-content-center">
+                        <div class="col text-center">
+                            <button class="new_obj" id="gridONOF">
+                                <svg height="40" width="40" viewBox="0 0 60 60">
+                                    <path d="M10 15 L50 15 M10 30 L50 30 M10 45 L50 45" stroke-linecap="round"
+                                          stroke-width="4" stroke="#ccdbdb"
+                                          fill="none"></path>
+                                    <path d="M15 10 L15 50 M30 10 L30 50 M45 10 L45 50" stroke-linecap="round"
+                                          stroke-width="4" stroke="#F0FFFFFF"
+                                          fill="none"></path>
+
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <input type="range" id="verticalGrid" min="2" max="100" value="2" class="slider">
+                    <div id="verQuan" class="text">Ilość lini siatki : 2</div>
+                </div>
+                <div class="option">
+                    <input type="range" id="horizontalGrid" min="2" max="100" value="2" class="slider">
+                    <div id="horQuan" class="text">Ilość lini siatki : 2</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="elements-settings" class="hidden">
+
+        </div>
+    </div>
+
+</div>
+<input class="hidden" height="0" width="0" id="newPhoto" type="file"
+       value="New Photo">
+<div class="hidden" id="realCanvasSize">
+
+</div>
+<div id="backgroundOfDialog" class="hidden"></div>
+<div id="picker" class="hidden">
+    <div class="picker-1">
+        <canvas class="canvas-picker-big" id="hue" height="200" width="400"></canvas>
+    </div>
+
+    <div class="picker-2">
+        <canvas class="canvas-picker" id="color" height="10" width="400"></canvas>
+    </div>
+    <div class="picker-3">
+        <canvas class="canvas-picker" id="opacity" height="10" width="400" style="margin-bottom: 10px;"></canvas>
+        <div class="row">
+            <div class="col-3 centered-white" id="R1">
+                R: 0
+            </div>
+            <div class="col-3 centered-white" id="G1">
+                G: 0
+            </div>
+            <div class="col-3 centered-white" id="B1">
+                B: 0
+            </div>
+            <div class="col-3 centered-white" id="A1">
+                A: 255
+            </div>
+
+        </div>
+        <canvas class="canvas-picker" id="chosen" height="10" width="400"></canvas>
+        <button class="button1" id="saveColour">Wybierz</button>
+
+    </div>
+</div>
+<div class="hidden" id="fontsDialog">
+    <div class="scroll-list">
+        <div class="option font_button" id="1Fo" style="font-family: Arial">
+            <div class="large-text" style="font-family: Arial">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="2Fo" style="font-family: 'Comic Sans MS'">
+            <div class="large-text" style="font-family: 'Comic Sans MS'">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="3Fo" style="font-family: Futura">
+            <div class="large-text" style="font-family: Futura">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="4Fo" style="font-family: 'Noto Sans Rejang'">
+            <div class="large-text" style="font-family: 'Noto Sans Rejang'">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="5Fo" style="font-family: Optima">
+            <div class="large-text" style="font-family: Optima">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="6Fo" style="font-family: Times">
+            <div class="large-text" style="font-family: Times">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="7Fo" style="font-family: Wingdings">
+            <div class="large-text" style="font-family: Wingdings">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="8Fo" style="font-family: 'Apple Braille'">
+            <div class="large-text" style="font-family: 'Apple Braille'">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="9Fo" style="font-family: Farisi">
+            <div class="large-text" style="font-family: Farisi">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="10Fo" style="font-family: Menlo">
+            <div class="large-text" style="font-family: Menlo">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="11Fo" style="font-family: Roboto">
+            <div class="large-text" style="font-family: Roboto">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="12Fo" style="font-family: Dialog">
+            <div class="large-text" style="font-family: Dialog">Twój tekst</div>
+        </div>
+        <div class="option font_button" id="13Fo" style="font-family: Avenir">
+            <div class="large-text" style="font-family: Avenir">Twój tekst</div>
+        </div>
+
+    </div>
+</div>
+
+<div id="exportDialog" class="hidden">
+    <div class="leftHalfOfContainer">
+        <img id="exportImage">
+    </div>
+    <div class="rightHalfOfContainer">
+        <div class="row row-cols-2 rectangleContainer">
+            <div class="col">
+            <button id="enlargementPng" class="button1">.png</button>
+            </div>
+            <div class="col">
+            <button id="enlargementJpg" class="button3">.jpg</button>
+            </div>
+        </div>
+        <div class="row row-cols-1 rectangleContainer">
+            <div class="col">
+                <input type="text" id="exportName" value="file">
+            </div>
+        </div>
+        <div class="row row-cols-2 justify-content-center rectangleContainer">
+            <div class="col text-center">
+                <div id="fileExportName" class="text">
+                    file
+                </div>
+            </div>
+            <div class="col text-center">
+                <div id="fileEnlargementExport" class="text">
+                .png
+                </div>
+            </div>
+            <div class="col text-center">
+                <div id="frequencyExport" class="text">
+                1080x1920
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1">
+            <div class="col text-center">
+                <button type="submit" id="download">
+                    <svg height="40" width="40" viewBox="0 0 60 60">
+                        <path d="M30 10 L30 50 " stroke-linecap="round" stroke="#000" fill="none"
+                              stroke-width="4"></path>
+                        <path d="M15 30 L30 50 M30 50 L45 30" stroke-linecap="round" fill="none" stroke="#000"
+                              stroke-width="4"></path>
+
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="all/colorPicker.js"></script>
+<script type="module" src="classes/canvas.js"></script>
+<script type="module" src="classes/image.js"></script>
+<script type="module" src="classes/grid.js"></script>
+<script type="text/babel" src="all/main.js"></script>
+<script type="text/babel" src="all/create.js"></script>
+
+<script type="module" src="classes/text.js"></script>
+<script type="module" src="all/export.js"></script>
+
+</body>
+</html>
